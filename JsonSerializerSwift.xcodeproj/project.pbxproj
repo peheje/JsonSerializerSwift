@@ -1,0 +1,400 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB371EDA1BCD1D8A004D0E12 /* JsonSerializerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = CB371ED91BCD1D8A004D0E12 /* JsonSerializerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB371EE11BCD1D8A004D0E12 /* JsonSerializerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB371ED61BCD1D8A004D0E12 /* JsonSerializerSwift.framework */; settings = {ASSET_TAGS = (); }; };
+		CB371EE61BCD1D8A004D0E12 /* JsonSerializerSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB371EE51BCD1D8A004D0E12 /* JsonSerializerSwiftTests.swift */; };
+		CB371EF11BCD1DB9004D0E12 /* JsonSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB371EF01BCD1DB9004D0E12 /* JsonSerializer.swift */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CB371EE21BCD1D8A004D0E12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB371ECD1BCD1D8A004D0E12 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB371ED51BCD1D8A004D0E12;
+			remoteInfo = JsonSerializerSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CB371ED61BCD1D8A004D0E12 /* JsonSerializerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JsonSerializerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB371ED91BCD1D8A004D0E12 /* JsonSerializerSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonSerializerSwift.h; sourceTree = "<group>"; };
+		CB371EDB1BCD1D8A004D0E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB371EE01BCD1D8A004D0E12 /* JsonSerializerSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JsonSerializerSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB371EE51BCD1D8A004D0E12 /* JsonSerializerSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonSerializerSwiftTests.swift; sourceTree = "<group>"; };
+		CB371EE71BCD1D8A004D0E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB371EF01BCD1DB9004D0E12 /* JsonSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonSerializer.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB371ED21BCD1D8A004D0E12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB371EDD1BCD1D8A004D0E12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB371EE11BCD1D8A004D0E12 /* JsonSerializerSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CB371ECC1BCD1D8A004D0E12 = {
+			isa = PBXGroup;
+			children = (
+				CB371ED81BCD1D8A004D0E12 /* JsonSerializerSwift */,
+				CB371EE41BCD1D8A004D0E12 /* JsonSerializerSwiftTests */,
+				CB371ED71BCD1D8A004D0E12 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CB371ED71BCD1D8A004D0E12 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB371ED61BCD1D8A004D0E12 /* JsonSerializerSwift.framework */,
+				CB371EE01BCD1D8A004D0E12 /* JsonSerializerSwiftTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB371ED81BCD1D8A004D0E12 /* JsonSerializerSwift */ = {
+			isa = PBXGroup;
+			children = (
+				CB371ED91BCD1D8A004D0E12 /* JsonSerializerSwift.h */,
+				CB371EDB1BCD1D8A004D0E12 /* Info.plist */,
+				CB371EF01BCD1DB9004D0E12 /* JsonSerializer.swift */,
+			);
+			path = JsonSerializerSwift;
+			sourceTree = "<group>";
+		};
+		CB371EE41BCD1D8A004D0E12 /* JsonSerializerSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB371EE51BCD1D8A004D0E12 /* JsonSerializerSwiftTests.swift */,
+				CB371EE71BCD1D8A004D0E12 /* Info.plist */,
+			);
+			path = JsonSerializerSwiftTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CB371ED31BCD1D8A004D0E12 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB371EDA1BCD1D8A004D0E12 /* JsonSerializerSwift.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CB371ED51BCD1D8A004D0E12 /* JsonSerializerSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB371EEA1BCD1D8A004D0E12 /* Build configuration list for PBXNativeTarget "JsonSerializerSwift" */;
+			buildPhases = (
+				CB371ED11BCD1D8A004D0E12 /* Sources */,
+				CB371ED21BCD1D8A004D0E12 /* Frameworks */,
+				CB371ED31BCD1D8A004D0E12 /* Headers */,
+				CB371ED41BCD1D8A004D0E12 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JsonSerializerSwift;
+			productName = JsonSerializerSwift;
+			productReference = CB371ED61BCD1D8A004D0E12 /* JsonSerializerSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CB371EDF1BCD1D8A004D0E12 /* JsonSerializerSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB371EED1BCD1D8A004D0E12 /* Build configuration list for PBXNativeTarget "JsonSerializerSwiftTests" */;
+			buildPhases = (
+				CB371EDC1BCD1D8A004D0E12 /* Sources */,
+				CB371EDD1BCD1D8A004D0E12 /* Frameworks */,
+				CB371EDE1BCD1D8A004D0E12 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB371EE31BCD1D8A004D0E12 /* PBXTargetDependency */,
+			);
+			name = JsonSerializerSwiftTests;
+			productName = JsonSerializerSwiftTests;
+			productReference = CB371EE01BCD1D8A004D0E12 /* JsonSerializerSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB371ECD1BCD1D8A004D0E12 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Peter Helstrup Jensen";
+				TargetAttributes = {
+					CB371ED51BCD1D8A004D0E12 = {
+						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 8AEF7L787E;
+					};
+					CB371EDF1BCD1D8A004D0E12 = {
+						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 8AEF7L787E;
+					};
+				};
+			};
+			buildConfigurationList = CB371ED01BCD1D8A004D0E12 /* Build configuration list for PBXProject "JsonSerializerSwift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CB371ECC1BCD1D8A004D0E12;
+			productRefGroup = CB371ED71BCD1D8A004D0E12 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB371ED51BCD1D8A004D0E12 /* JsonSerializerSwift */,
+				CB371EDF1BCD1D8A004D0E12 /* JsonSerializerSwiftTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB371ED41BCD1D8A004D0E12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB371EDE1BCD1D8A004D0E12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB371ED11BCD1D8A004D0E12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB371EF11BCD1DB9004D0E12 /* JsonSerializer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB371EDC1BCD1D8A004D0E12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB371EE61BCD1D8A004D0E12 /* JsonSerializerSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CB371EE31BCD1D8A004D0E12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB371ED51BCD1D8A004D0E12 /* JsonSerializerSwift */;
+			targetProxy = CB371EE21BCD1D8A004D0E12 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CB371EE81BCD1D8A004D0E12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CB371EE91BCD1D8A004D0E12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CB371EEB1BCD1D8A004D0E12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JsonSerializerSwift/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = peheje.JsonSerializerSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CB371EEC1BCD1D8A004D0E12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JsonSerializerSwift/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = peheje.JsonSerializerSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CB371EEE1BCD1D8A004D0E12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JsonSerializerSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = peheje.JsonSerializerSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CB371EEF1BCD1D8A004D0E12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JsonSerializerSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = peheje.JsonSerializerSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB371ED01BCD1D8A004D0E12 /* Build configuration list for PBXProject "JsonSerializerSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB371EE81BCD1D8A004D0E12 /* Debug */,
+				CB371EE91BCD1D8A004D0E12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB371EEA1BCD1D8A004D0E12 /* Build configuration list for PBXNativeTarget "JsonSerializerSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB371EEB1BCD1D8A004D0E12 /* Debug */,
+				CB371EEC1BCD1D8A004D0E12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CB371EED1BCD1D8A004D0E12 /* Build configuration list for PBXNativeTarget "JsonSerializerSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB371EEE1BCD1D8A004D0E12 /* Debug */,
+				CB371EEF1BCD1D8A004D0E12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CB371ECD1BCD1D8A004D0E12 /* Project object */;
+}
