@@ -9,8 +9,7 @@ Uses reflection. On a MBP 15 Ultimo 2013 I'm getting about 1.5 sec for serializi
 
 Here a simple test case is shown. For more tests see the JsonSerializerSwiftTests file, git clone to run them yourself :)
 
-```
-
+```swift
 //Arrange your model classes
 class Object {
   var id: Int = 182371823
@@ -34,5 +33,4 @@ let expected = "{\"fur\": true, \"weight\": 2.5, \"age\": 2, \"name\": \"An anim
 stringCompareHelper(json, expected) //returns true
 
 ```
-
 Currently supports standard types, optional standard types, arrays, arrays of nullables standard types, array of custom classes, inheritance, composition of custom objects.
