@@ -20,7 +20,7 @@ public class JSONSerializer {
     - JsonIsNotArray:			-
     - JsonIsNotValid:			-
     */
-    enum JSONSerializerError: ErrorType {
+    public enum JSONSerializerError: ErrorType {
         case JsonIsNotDictionary
         case JsonIsNotArray
         case JsonIsNotValid
@@ -181,8 +181,7 @@ public class JSONSerializer {
                 let str = String(value)
                 if str != "nil" {
                     handledValue = String(str).substringWithRange(Range<String.Index>(start: str.startIndex.advancedBy(9), end: str.endIndex.advancedBy(-1)))
-                }
-                else {
+                } else {
                     handledValue = "null"
                 }
             }
