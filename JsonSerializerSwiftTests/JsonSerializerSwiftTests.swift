@@ -373,7 +373,6 @@ class JSONSerializerTests: XCTestCase {
             var fur: Bool = true
         }
         
-        
         let m = Cat()
         
         //Act
@@ -475,6 +474,37 @@ class JSONSerializerTests: XCTestCase {
             //Act
             let json = JSONSerializer.toJson(m)
         }
+    }
+    
+    func testNotMapped_classWithPropertiesAndSomeNotMapped_notMappedDoesNotMap() {
+        
+        //Arrange
+        class Object {
+            var id: Int = 182371823
+            var notMapped_appId = 2002
+        }
+        class Animal: Object {
+            var weight: Double = 2.5
+            var age: Int = 2
+            var name: String? = "An animal"
+            var notMapped_internalClass = "MyInternalClass"
+        }
+        class Cat: Animal {
+            var fur: Bool = true
+            var notMapped_information = [1.3, 5.0, 2.2]
+        }
+        
+        
+        let m = Cat()
+        
+        //Act
+        let json = JSONSerializer.toJson(m)
+        
+        //Assert
+        let expected = "{\"fur\": true, \"weight\": 2.5, \"age\": 2, \"name\": \"An animal\", \"id\": 182371823}"
+        stringCompareHelper(json, expected)
+
+
     }
     
     

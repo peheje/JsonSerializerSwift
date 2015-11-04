@@ -87,7 +87,7 @@ public class JSONSerializer {
         }
         return any
     }
-    
+
     /**
     Generates the JSON representation given any custom object of any custom class. Inherited properties will also be represented.
     - parameter object:	The instantiation of any custom class to be represented as JSON.
@@ -108,10 +108,17 @@ public class JSONSerializer {
             currentMirror = currentMirror.superclassMirror()!
         }
         
-        let size = children.count
+        var filteredChildren = [(label: String?, value: Any)]()
+        for (optionalPropertyName, value) in children {
+            if !optionalPropertyName!.containsString("notMapped_") {
+                filteredChildren += [(optionalPropertyName, value)]
+            }
+        }
+        
+        let size = filteredChildren.count
         var index = 0
         
-        for (optionalPropertyName, value) in children {
+        for (optionalPropertyName, value) in filteredChildren {
             
             /*let type = value.dynamicType
             let typeString = String(type)
@@ -199,7 +206,6 @@ public class JSONSerializer {
             else {
                 handledValue = String(value) != "nil" ? "\"\(value)\"" : "null"
             }
-            
             json += "\"\(propertyName)\": \(handledValue)" + (index < size-1 ? ", " : "")
             ++index
         }
