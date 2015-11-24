@@ -437,7 +437,7 @@ class JSONSerializerTests: XCTestCase {
     }
     
     
-    func testPerformance_familyWith10000PersonsAndInheritance_lessThan1500ms() {
+    func testPerformance_familyWith10000PersonsAndInheritance_lessThan2000ms() {
         
         //Arrange
         class Entity {
