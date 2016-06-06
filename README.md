@@ -1,5 +1,5 @@
 # JsonSerializerSwift
-A simple Json Serializer for Swift 2
+A simple Json Serializer for Swift
 
 Parse your Swift object instances to a JSON string. This is a simple one-to-one conversion atm. No pretty print. Properties will be named the same thing as in your classes as in the JSON string. But I'm planning to add support for camelCaseName -> CamedCaseName in the conversion process, and maybe a custom name mapping (especially if Apple introduces property [Attributes]).
 
@@ -33,4 +33,4 @@ let expected = "{\"fur\": true, \"weight\": 2.5, \"age\": 2, \"name\": \"An anim
 stringCompareHelper(json, expected) //returns true
 
 ```
-Currently supports standard types, optional standard types, arrays, arrays of nullables standard types, array of custom classes, inheritance, composition of custom objects.
+Currently supports standard types, optional standard types, arrays, arrays of nullables standard types, array of custom classes, inheritance, composition of custom objects, structs.
