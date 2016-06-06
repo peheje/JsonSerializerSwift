@@ -193,7 +193,8 @@ public class JSONSerializer {
                 }
                 handledValue += "]"
             }
-            else if property.displayStyle == Mirror.DisplayStyle.Class {
+            else if property.displayStyle == Mirror.DisplayStyle.Class ||
+                    property.displayStyle == Mirror.DisplayStyle.Struct {
                 handledValue = toJson(value)
             }
             else if property.displayStyle == Mirror.DisplayStyle.Optional {

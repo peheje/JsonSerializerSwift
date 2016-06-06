@@ -430,6 +430,58 @@ class JSONSerializerTests: XCTestCase {
         stringCompareHelper(json, expected)
     }
     
+    func testStruct_structWithMembers_structHandled() {
+        
+        //Arrange
+        struct Location {
+            var latitude: Int = 20
+            var longitude: Int = 10
+        }
+        
+        class Cat {
+            var name: String? = "Kitty"
+            var location = Location()
+        }
+        
+        let m = Cat()
+        
+        //Act
+        let json = JSONSerializer.toJson(m)
+        
+        //Assert
+        let expected = "{\"name\": \"Kitty\", \"location\": {\"latitude\": 20, \"longitude\": 10}}"
+        stringCompareHelper(json, expected)
+    }
+    
+    func testStruct_structWithStruct_structsHandled() {
+        
+        //Arrange
+        struct Identifier {
+            var hash: String = "1337$"
+            var id: Int = 42
+        }
+        
+        struct Location {
+            var latitude: Int = 20
+            var longitude: Int = 10
+            var Id = Identifier()
+        }
+        
+        class Cat {
+            var name: String? = "Kitty"
+            var location = Location()
+        }
+        
+        let m = Cat()
+        
+        //Act
+        let json = JSONSerializer.toJson(m)
+        
+        //Assert
+        let expected = "{\"name\": \"Kitty\", \"location\": {\"latitude\": 20, \"longitude\": 10, \"Id\": {\"hash\": \"1337$\", \"id\": 42}}}"
+        stringCompareHelper(json, expected)
+    }
+    
     func testPerformance_singleObject7Properties_lessThan10ms() {
         
         class Person {
@@ -521,9 +573,5 @@ class JSONSerializerTests: XCTestCase {
         //Assert
         let expected = "{\"fur\": true, \"weight\": 2.5, \"age\": 2, \"name\": \"An animal\", \"id\": 182371823}"
         stringCompareHelper(json, expected)
-
-
     }
-    
-    
 }
