@@ -128,7 +128,8 @@ public class JSONSerializer {
             let property = Mirror(reflecting: value)
             
             var handledValue = String()
-            if value is Int || value is Double || value is Float || value is Bool {
+            if (value is Int || value is Double || value is Float || value is Bool) &&
+            property.displayStyle != Mirror.DisplayStyle.Optional {
                 handledValue = String(value ?? "null")
             }
             else if let array = value as? [Int?] {

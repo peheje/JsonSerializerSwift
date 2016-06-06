@@ -138,10 +138,12 @@ class JSONSerializerTests: XCTestCase {
         stringCompareHelper(json, expected)
     }
     
-    func test_optionalInt_null() {
+    func test_optionalDouble_2dot2() {
+        /* Currently optional doubles cause trouble. This is because converting it to string to remove the optional part is kind of a hack and introduces double rounding errors. You are welcome to try fix it. */
+        
         //Arrange
         class TestClass {
-            var weight: Int? = nil
+            var weight: Double? = 2.2
         }
         
         let m = TestClass()
@@ -150,7 +152,7 @@ class JSONSerializerTests: XCTestCase {
         let json = JSONSerializer.toJson(m)
         
         //Assert
-        let expected = "{\"weight\": null}"
+        let expected = "{\"weight\": 2.2}"  //actually 2.2000000000000002
         stringCompareHelper(json, expected)
     }
     
@@ -174,6 +176,22 @@ class JSONSerializerTests: XCTestCase {
         //Arrange
         class TestClass {
             var delicious = true
+        }
+        
+        let m = TestClass()
+        
+        //Act
+        let json = JSONSerializer.toJson(m)
+        
+        //Assert
+        let expected = "{\"delicious\": true}"
+        stringCompareHelper(json, expected)
+    }
+    
+    func test_optionalBool_true() {
+        //Arrange
+        class TestClass {
+            var delicious: Bool? = true
         }
         
         let m = TestClass()
