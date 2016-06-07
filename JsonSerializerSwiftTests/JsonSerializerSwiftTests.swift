@@ -482,6 +482,40 @@ class JSONSerializerTests: XCTestCase {
         stringCompareHelper(json, expected)
     }
     
+    func test_optionalStruct_included() {
+        
+        //Arrange
+        struct Location{
+            var latitude: Int?
+            var longitude: Int?
+            var trueNorth: String
+        }
+        
+        class Cat {
+            var name: String?
+            var color: String?
+            var age: String?
+            var location: Location?
+            var purRate = 3.3
+            init()
+            {
+                location = Location(latitude: 4034, longitude: 2012, trueNorth: "yes")
+            }
+        }
+        
+        let cat = Cat()
+        cat.name = "Mr. Cat"
+        cat.color = "Orange"
+        cat.age = "3"
+        
+        //Act
+        let json = JSONSerializer.toJson(cat)
+        
+        //Assert
+        let expected = "{\"name\": \"Mr. Cat\", \"color\": \"Orange\", \"age\": \"3\", \"location\": {\"latitude\": 4034, \"longitude\": 2012, \"trueNorth\": \"yes\"}, \"purRate\": 3.3}"
+        stringCompareHelper(json, expected)
+    }
+    
     func testPerformance_singleObject7Properties_lessThan10ms() {
         
         class Person {

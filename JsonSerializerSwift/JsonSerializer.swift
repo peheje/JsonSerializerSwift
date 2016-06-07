@@ -115,21 +115,24 @@ public class JSONSerializer {
             }
         }
         
+        var skip = false
         let size = filteredChildren.count
         var index = 0
         
         for (optionalPropertyName, value) in filteredChildren {
-            
-            /*let type = value.dynamicType
-            let typeString = String(type)
-            print("SELF: \(type)")*/
+            skip = false
             
             let propertyName = optionalPropertyName!
             let property = Mirror(reflecting: value)
             
             var handledValue = String()
-            if (value is Int || value is Double || value is Float || value is Bool) &&
-            property.displayStyle != Mirror.DisplayStyle.Optional {
+            
+            if propertyName == "Some" && property.displayStyle == Mirror.DisplayStyle.Struct {
+                handledValue = toJson(value)
+                skip = true
+            }
+            else if (value is Int || value is Double || value is Float || value is Bool) &&
+                property.displayStyle != Mirror.DisplayStyle.Optional {
                 handledValue = String(value ?? "null")
             }
             else if let array = value as? [Int?] {
@@ -194,7 +197,8 @@ public class JSONSerializer {
                 handledValue += "]"
             }
             else if property.displayStyle == Mirror.DisplayStyle.Class ||
-                    property.displayStyle == Mirror.DisplayStyle.Struct {
+                property.displayStyle == Mirror.DisplayStyle.Struct ||
+                String(value.dynamicType).containsString("#") {
                 handledValue = toJson(value)
             }
             else if property.displayStyle == Mirror.DisplayStyle.Optional {
@@ -208,10 +212,20 @@ public class JSONSerializer {
             else {
                 handledValue = String(value) != "nil" ? "\"\(value)\"" : "null"
             }
-            json += "\"\(propertyName)\": \(handledValue)" + (index < size-1 ? ", " : "")
+            
+            if !skip {
+                json += "\"\(propertyName)\": \(handledValue)" + (index < size-1 ? ", " : "")
+            } else {
+                json = "\(handledValue)" + (index < size-1 ? ", " : "")
+            }
+            
             index += 1
         }
-        json += "}"
+        
+        if !skip {
+            json += "}"
+        }
+        
         return json
     }
 }
