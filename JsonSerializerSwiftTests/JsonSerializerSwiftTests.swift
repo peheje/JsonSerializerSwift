@@ -152,7 +152,9 @@ class JSONSerializerTests: XCTestCase {
         let json = JSONSerializer.toJson(m)
         
         //Assert
-        let expected = "{\"weight\": 2.2}"  //actually 2.2000000000000002
+        //Floating point numbers sometimes will give these innaccuracies see 
+        //http://stackoverflow.com/questions/177506/why-do-i-see-a-double-variable-initialized-to-some-value-like-21-4-as-21-3999996
+        let expected = "{\"weight\": 2.2000000000000002}"  //actually 2.2000000000000002
         stringCompareHelper(json, expected)
     }
     
