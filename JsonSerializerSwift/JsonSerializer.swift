@@ -21,6 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
 import Foundation
+import CoreData
 
 /// Handles Convertion from instances of objects to JSON strings. Also helps with casting strings of JSON to Arrays or Dictionaries.
 public class JSONSerializer {
@@ -96,22 +97,32 @@ public class JSONSerializer {
     public static func toJson(object: Any) -> String {
         var json = "{"
         let mirror = Mirror(reflecting: object)
-        
-        var children = [(label: String?, value: Any)]()
-        let mirrorChildrenCollection = AnyRandomAccessCollection(mirror.children)!
-        children += mirrorChildrenCollection
-        
-        var currentMirror = mirror
-        while let superclassChildren = currentMirror.superclassMirror()?.children {
-            let randomCollection = AnyRandomAccessCollection(superclassChildren)!
-            children += randomCollection
-            currentMirror = currentMirror.superclassMirror()!
-        }
-        
         var filteredChildren = [(label: String?, value: Any)]()
-        for (optionalPropertyName, value) in children {
-            if !optionalPropertyName!.containsString("notMapped_") {
-                filteredChildren += [(optionalPropertyName, value)]
+        var children = [(label: String?, value: Any)]()
+        
+        if object is NSManagedObject {
+            let ent = object as! NSManagedObject
+            for (name, _) in  ent.entity.attributesByName { // _ = attr
+                //let attrType = attr.attributeType // NSAttributeType enumeration for the property type
+                //let attrClass = attr.attributeValueClassName ?? "unknown"
+                //print("attrType \(attrType)")
+                //print(name, "=", ent.valueForKey(name), "type =", attrClass)
+                filteredChildren += [(name as String?, ent.valueForKey(name) as Any)]
+            }
+        } else {
+            let mirrorChildrenCollection = AnyRandomAccessCollection(mirror.children)!
+            children += mirrorChildrenCollection
+            var currentMirror = mirror
+            while let superclassChildren = currentMirror.superclassMirror()?.children {
+                let randomCollection = AnyRandomAccessCollection(superclassChildren)!
+                children += randomCollection
+                currentMirror = currentMirror.superclassMirror()!
+            }
+        
+            for (optionalPropertyName, value) in children {
+                if !optionalPropertyName!.containsString("notMapped_") {
+                    filteredChildren += [(optionalPropertyName, value)]
+                }
             }
         }
         
