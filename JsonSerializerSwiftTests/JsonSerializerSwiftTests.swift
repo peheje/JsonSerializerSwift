@@ -610,4 +610,34 @@ class JSONSerializerTests: XCTestCase {
         let expected = "{\"fur\": true, \"weight\": 2.5, \"age\": 2, \"name\": \"An animal\", \"id\": 182371823}"
         stringCompareHelper(json, expected)
     }
+    
+    func test_prettify() {
+        
+        //Arrange
+        class Object {
+            var id: Int = 182371823
+            var notMapped_appId = 2002
+        }
+        class Animal: Object {
+            var weight: Double = 2.5
+            var age: Int = 2
+            var name: String? = "An animal"
+            var notMapped_internalClass = "MyInternalClass"
+        }
+        class Cat: Animal {
+            var fur: Bool = true
+            var information = [1.3, 5.0, 2.2]
+        }
+        
+        
+        let m = Cat()
+        
+        //Act
+        let json = JSONSerializer.toJson(m, prettify: true)
+        print(json)
+        
+        //Assert
+        let expected = "{\n  \"information\" : [\n    1.3,\n    5,\n    2.2\n  ],\n  \"age\" : 2,\n  \"id\" : 182371823,\n  \"fur\" : true,\n  \"weight\" : 2.5,\n  \"name\" : \"An animal\"\n}"
+        stringCompareHelper(json, expected)
+    }
 }
