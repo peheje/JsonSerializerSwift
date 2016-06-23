@@ -640,4 +640,51 @@ class JSONSerializerTests: XCTestCase {
         let expected = "{\n  \"information\" : [\n    1.3,\n    5,\n    2.2\n  ],\n  \"age\" : 2,\n  \"id\" : 182371823,\n  \"fur\" : true,\n  \"weight\" : 2.5,\n  \"name\" : \"An animal\"\n}"
         stringCompareHelper(json, expected)
     }
+    
+    func test_intArray_noIndex() {
+        
+        //Arrange
+        let m = [1, 2, 3]
+        
+        //Act
+        let json = JSONSerializer.toJson(m, prettify: true)
+        print(json)
+        
+        //Assert
+        let expected = "[1, 2, 3]"
+        stringCompareHelper(json, expected)
+    }
+    
+    func test_doubleArray_noIndex() {
+        
+        //Arrange
+        let m = [2.2, 1.5, 5.6]
+        
+        //Act
+        let json = JSONSerializer.toJson(m, prettify: true)
+        print(json)
+        
+        //Assert
+        let expected = "{[2.2, 1.5, 5.6]}"
+        stringCompareHelper(json, expected)
+    }
+    
+    func test_array() {
+        class Location {
+            var lat: Int
+            var lon: Int
+            init(_ lat: Int, _ lon: Int) {
+                self.lat = lat
+                self.lon = lon
+            }
+        }
+        
+        var m = [Location]()
+        m.append(Location(1, 2))
+        m.append(Location(1, 2))
+        
+        let json = JSONSerializer.toJson(m, prettify: false)
+        
+        print(json)
+    }
 }
