@@ -655,36 +655,19 @@ class JSONSerializerTests: XCTestCase {
         stringCompareHelper(json, expected)
     }
     
-    func test_doubleArray_noIndex() {
-        
-        //Arrange
-        let m = [2.2, 1.5, 5.6]
-        
-        //Act
-        let json = JSONSerializer.toJson(m, prettify: true)
-        print(json)
-        
-        //Assert
-        let expected = "{[2.2, 1.5, 5.6]}"
-        stringCompareHelper(json, expected)
-    }
-    
-    func test_array() {
-        class Location {
-            var lat: Int
-            var lon: Int
-            init(_ lat: Int, _ lon: Int) {
-                self.lat = lat
-                self.lon = lon
+    func test_optionalArrayInt_succeed() {
+            //Arrange
+            class TestClass {
+                var array: [Int]? = [1, 2, 3, 4]
             }
+            
+            let m = TestClass()
+            
+            //Act
+            let json = JSONSerializer.toJson(m)
+            
+            //Assert
+            let expected = "{\"array\": [1, 2, 3, 4]}"
+            stringCompareHelper(json, expected)
         }
-        
-        var m = [Location]()
-        m.append(Location(1, 2))
-        m.append(Location(1, 2))
-        
-        let json = JSONSerializer.toJson(m, prettify: false)
-        
-        print(json)
     }
-}
