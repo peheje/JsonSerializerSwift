@@ -1,24 +1,24 @@
 /*The MIT License (MIT)
- 
- Copyright (c) 2015 Peter Helstrup Jensen
- 
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
- 
- The above copyright notice and this permission notice shall be included in all
- copies or substantial portions of the Software.
- 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- SOFTWARE.*/
+
+Copyright (c) 2015 Peter Helstrup Jensen
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.*/
 
 import Foundation
 
@@ -26,11 +26,11 @@ import Foundation
 public class JSONSerializer {
     
     /**
-     Errors that indicates failures of JSONSerialization
-     - JsonIsNotDictionary:	-
-     - JsonIsNotArray:			-
-     - JsonIsNotValid:			-
-     */
+    Errors that indicates failures of JSONSerialization
+    - JsonIsNotDictionary:	-
+    - JsonIsNotArray:			-
+    - JsonIsNotValid:			-
+    */
     public enum JSONSerializerError: ErrorType {
         case JsonIsNotDictionary
         case JsonIsNotArray
@@ -39,11 +39,11 @@ public class JSONSerializer {
     
     //http://stackoverflow.com/questions/30480672/how-to-convert-a-json-string-to-a-dictionary
     /**
-     Tries to convert a JSON string to a NSDictionary. NSDictionary can be easier to work with, and supports string bracket referencing. E.g. personDictionary["name"].
-     - parameter jsonString:	JSON string to be converted to a NSDictionary.
-     - throws: Throws error of type JSONSerializerError. Either JsonIsNotValid or JsonIsNotDictionary. JsonIsNotDictionary will typically be thrown if you try to parse an array of JSON objects.
-     - returns: A NSDictionary representation of the JSON string.
-     */
+    Tries to convert a JSON string to a NSDictionary. NSDictionary can be easier to work with, and supports string bracket referencing. E.g. personDictionary["name"].
+    - parameter jsonString:	JSON string to be converted to a NSDictionary.
+    - throws: Throws error of type JSONSerializerError. Either JsonIsNotValid or JsonIsNotDictionary. JsonIsNotDictionary will typically be thrown if you try to parse an array of JSON objects.
+    - returns: A NSDictionary representation of the JSON string.
+    */
     public static func toDictionary(jsonString: String) throws -> NSDictionary {
         if let dictionary = try jsonToAnyObject(jsonString) as? NSDictionary {
             return dictionary
@@ -53,11 +53,11 @@ public class JSONSerializer {
     }
     
     /**
-     Tries to convert a JSON string to a NSArray. NSArrays can be iterated and each item in the array can be converted to a NSDictionary.
-     - parameter jsonString:	The JSON string to be converted to an NSArray
-     - throws: Throws error of type JSONSerializerError. Either JsonIsNotValid or JsonIsNotArray. JsonIsNotArray will typically be thrown if you try to parse a single JSON object.
-     - returns: NSArray representation of the JSON objects.
-     */
+    Tries to convert a JSON string to a NSArray. NSArrays can be iterated and each item in the array can be converted to a NSDictionary.
+    - parameter jsonString:	The JSON string to be converted to an NSArray
+    - throws: Throws error of type JSONSerializerError. Either JsonIsNotValid or JsonIsNotArray. JsonIsNotArray will typically be thrown if you try to parse a single JSON object.
+    - returns: NSArray representation of the JSON objects.
+    */
     public static func toArray(jsonString: String) throws -> NSArray {
         if let array = try jsonToAnyObject(jsonString) as? NSArray {
             return array
@@ -67,11 +67,11 @@ public class JSONSerializer {
     }
     
     /**
-     Tries to convert a JSON string to AnyObject. AnyObject can then be casted to either NSDictionary or NSArray.
-     - parameter jsonString:	JSON string to be converted to AnyObject
-     - throws: Throws error of type JSONSerializerError.
-     - returns: Returns the JSON string as AnyObject
-     */
+    Tries to convert a JSON string to AnyObject. AnyObject can then be casted to either NSDictionary or NSArray.
+    - parameter jsonString:	JSON string to be converted to AnyObject
+    - throws: Throws error of type JSONSerializerError.
+    - returns: Returns the JSON string as AnyObject
+    */
     private static func jsonToAnyObject(jsonString: String) throws -> AnyObject? {
         var any: AnyObject?
         
@@ -87,37 +87,16 @@ public class JSONSerializer {
         }
         return any
     }
-    
-    public static func typeAt(type: String, at: Int) -> String? {
-        let split = type.componentsSeparatedByString("<")
-        if at < split.count {
-            return split[at]
-        }
-        return nil
-    }
-    
+
     /**
-     Generates the JSON representation given any custom object of any custom class. Inherited properties will also be represented.
-     - parameter object:	The instantiation of any custom class to be represented as JSON.
-     - returns: A string JSON representation of the object.
-     */
+    Generates the JSON representation given any custom object of any custom class. Inherited properties will also be represented.
+    - parameter object:	The instantiation of any custom class to be represented as JSON.
+    - returns: A string JSON representation of the object.
+    */
     public static func toJson(object: Any, prettify: Bool = false) -> String {
-        
+        var json = "{"
         let mirror = Mirror(reflecting: object)
-        let objectType = String(mirror.subjectType).lowercaseString
-        var json: String
         
-        print(objectType)
-        
-        //Handle array
-        if objectType.hasPrefix("swift") {
-            json = "["
-        }
-        
-        //Handle class
-        json = "{"
-        
-        //Gather the children inside the class
         var children = [(label: String?, value: Any)]()
         let mirrorChildrenCollection = AnyRandomAccessCollection(mirror.children)!
         children += mirrorChildrenCollection
@@ -140,49 +119,13 @@ public class JSONSerializer {
         let size = filteredChildren.count
         var index = 0
         
-        //Loop through the children
         for (optionalPropertyName, value) in filteredChildren {
-            
-            //Determine type
             skip = false
+            
             let propertyName = optionalPropertyName!
             let property = Mirror(reflecting: value)
             
-            let type = String(property.subjectType)
-            let display = property.displayStyle
-            print(type)
-            print(display)
-            
             var handledValue = String()
-            
-            if display == Mirror.DisplayStyle.Class || display == Mirror.DisplayStyle.Struct {
-                //Class or struct
-            } else {
-                if type.hasPrefix("Array") {
-                    //Array
-                    
-                    let isOptional = typeAt(type, at: 1) == "Optional"
-                    if isOptional {
-                        //Array with optional
-                        
-                    } else {
-                        //Array with simples
-                        
-                    }
-                } else {
-                    //Simple values
-                    
-                    let isOptional = typeAt(type, at: 0) == "Optional"
-                    if isOptional {
-                        //Optional simple
-                        
-                    } else {
-                        //Simple
-                        
-                    }
-                }
-            }
-            
             
             if propertyName == "Some" && property.displayStyle == Mirror.DisplayStyle.Struct {
                 handledValue = toJson(value)
@@ -292,4 +235,6 @@ public class JSONSerializer {
         
         return json
     }
+    
+    
 }
