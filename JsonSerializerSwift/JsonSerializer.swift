@@ -116,12 +116,10 @@ open class JSONSerializer {
         
         var filteredChildren = [(label: String?, value: Any)]()
         
-        var i = 0
-        
         for (optionalPropertyName, value) in children {
 
             if let optionalPropertyName = optionalPropertyName {
-                //filteredChildren += [(optionalPropertyName, value)]
+
                 if !optionalPropertyName.contains("notMapped_") {
                     filteredChildren.append((optionalPropertyName, value))
                 }
@@ -129,7 +127,6 @@ open class JSONSerializer {
             }
             else {
                 filteredChildren.append((nil, value))
-                i = i + 1
             }
         }
         
@@ -233,23 +230,27 @@ open class JSONSerializer {
                 handledValue = String(describing: value) != "nil" ? "\"\(value)\"" : "null"
             }
             
-            
-            
             if !skip {
                 
+                // if optional propertyName is populated we'll use it
                 if let propertyName = propertyName {
                     json += "\"\(propertyName)\": \(handledValue)" + (index < size-1 ? ", " : "")
                 }
+                // if not then we have a member an array
                 else {
+                    // if it's the first member we need to prepend ]
                     if first {
                         json += "["
                         first = false
                     }
+                    // if it's not the last we need a comma. if it is the last we need to close ]
                     json += "\(handledValue)" + (index < size-1 ? ", " : "]")
                 }
                 
             } else {
                 json = "\(handledValue)" + (index < size-1 ? ", " : "")
+                print("HANDLED VALUE: \(handledValue)")
+                
             }
             
             index += 1
