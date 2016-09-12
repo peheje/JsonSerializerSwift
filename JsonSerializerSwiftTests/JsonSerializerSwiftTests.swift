@@ -37,7 +37,7 @@ class JSONSerializerTests: XCTestCase {
     }
     
     //JSONSerializer tests
-    func stringCompareHelper(_ actual: String, _ expected: String) {
+    func stringCompareHelper(actual: String, _ expected: String) {
         XCTAssertTrue(expected == actual, "expected value:\(expected) not equal to actual:\(actual)")
     }
     
@@ -225,7 +225,7 @@ class JSONSerializerTests: XCTestCase {
     func test_date_specificDate() {
         //Arrange
         class TestClass {
-            var date = Date(timeIntervalSince1970: TimeInterval(1440430564)).description
+            var date = NSDate(timeIntervalSince1970: NSTimeInterval(1440430564))
         }
         
         let m = TestClass()
@@ -537,7 +537,7 @@ class JSONSerializerTests: XCTestCase {
         
         let m = Person(name: "testSubject", age: 25)
         
-        self.measure {
+        self.measureBlock {
             JSONSerializer.toJson(m)
         }
     }
@@ -576,7 +576,7 @@ class JSONSerializerTests: XCTestCase {
         
         let m = Family()
         
-        self.measure {
+        self.measureBlock {
             //Act
             let json = JSONSerializer.toJson(m)
         }
@@ -647,11 +647,11 @@ class JSONSerializerTests: XCTestCase {
         let m = [1, 2, 3]
         
         //Act
-        let json = JSONSerializer.toJson(m, prettify: false)
+        let json = JSONSerializer.toJson(m, prettify: true)
         print(json)
         
         //Assert
-        let expected = "{[1, 2, 3]}"
+        let expected = "[1, 2, 3]"
         stringCompareHelper(json, expected)
     }
     
@@ -661,7 +661,7 @@ class JSONSerializerTests: XCTestCase {
         let m = [2.2, 1.5, 5.6]
         
         //Act
-        let json = JSONSerializer.toJson(m, prettify: false)
+        let json = JSONSerializer.toJson(m, prettify: true)
         print(json)
         
         //Assert

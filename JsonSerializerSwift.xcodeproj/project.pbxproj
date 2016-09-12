@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CB371EDA1BCD1D8A004D0E12 /* JsonSerializerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = CB371ED91BCD1D8A004D0E12 /* JsonSerializerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CB371EE11BCD1D8A004D0E12 /* JsonSerializerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB371ED61BCD1D8A004D0E12 /* JsonSerializerSwift.framework */; };
+		CB371EE11BCD1D8A004D0E12 /* JsonSerializerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB371ED61BCD1D8A004D0E12 /* JsonSerializerSwift.framework */; settings = {ASSET_TAGS = (); }; };
 		CB371EE61BCD1D8A004D0E12 /* JsonSerializerSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB371EE51BCD1D8A004D0E12 /* JsonSerializerSwiftTests.swift */; };
-		CB371EF11BCD1DB9004D0E12 /* JsonSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB371EF01BCD1DB9004D0E12 /* JsonSerializer.swift */; };
+		CB371EF11BCD1DB9004D0E12 /* JsonSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB371EF01BCD1DB9004D0E12 /* JsonSerializer.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,12 +152,10 @@
 					CB371ED51BCD1D8A004D0E12 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = 8AEF7L787E;
-						LastSwiftMigration = 0800;
 					};
 					CB371EDF1BCD1D8A004D0E12 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = 8AEF7L787E;
-						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -328,7 +326,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -346,7 +343,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = peheje.JsonSerializerSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -357,7 +353,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = peheje.JsonSerializerSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -368,7 +363,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = peheje.JsonSerializerSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -391,7 +385,6 @@
 				CB371EEC1BCD1D8A004D0E12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		CB371EED1BCD1D8A004D0E12 /* Build configuration list for PBXNativeTarget "JsonSerializerSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -400,7 +393,6 @@
 				CB371EEF1BCD1D8A004D0E12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
