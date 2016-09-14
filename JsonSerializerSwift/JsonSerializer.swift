@@ -150,7 +150,6 @@ open class JSONSerializer {
             }
             else if (value is Int || value is Double || value is Float || value is Bool) && property.displayStyle != Mirror.DisplayStyle.optional {
                 handledValue = String(describing: value)
-                print(handledValue)
             }
             else if let array = value as? [Int?] {
                 handledValue += "["
@@ -249,8 +248,6 @@ open class JSONSerializer {
                 
             } else {
                 json = "\(handledValue)" + (index < size-1 ? ", " : "")
-                print("HANDLED VALUE: \(handledValue)")
-                
             }
             
             index += 1
