@@ -148,7 +148,12 @@ open class JSONSerializer {
                 handledValue = toJson(value)
                 skip = true
             }
-            else if (value is Int || value is Double || value is Float || value is Bool) && property.displayStyle != Mirror.DisplayStyle.optional {
+            else if (value is Int ||
+                     value is Int32 ||
+                     value is Int64 ||
+                     value is Double ||
+                     value is Float ||
+                     value is Bool) && property.displayStyle != Mirror.DisplayStyle.optional {
                 handledValue = String(describing: value)
             }
             else if let array = value as? [Int?] {
@@ -202,7 +207,10 @@ open class JSONSerializer {
             else if let array = value as? NSArray {
                 handledValue += "["
                 for (index, value) in array.enumerated() {
-                    if !(value is Int) && !(value is Double) && !(value is Float) && !(value is Bool) && !(value is String) {
+                    if !(value is Int) &&
+                       !(value is Int32) &&
+                       !(value is Int64) &&
+                       !(value is Double) && !(value is Float) && !(value is Bool) && !(value is String) {
                         handledValue += toJson(value)
                     }
                     else {

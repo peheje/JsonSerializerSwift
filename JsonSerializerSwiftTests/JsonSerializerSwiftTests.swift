@@ -687,4 +687,37 @@ class JSONSerializerTests: XCTestCase {
         
         print(json)
     }
+    
+    func test_int64_notTreatedAsString() {
+        //Arrange
+        class TestClass {
+            var weight: Int64 = 64
+        }
+        
+        let m = TestClass()
+        
+        //Act
+        let json = JSONSerializer.toJson(m)
+        
+        //Assert
+        let expected = "{\"weight\": 64}"
+        stringCompareHelper(json, expected)
+    }
+    
+    func test_arrayInt64_notTreatedAsString() {
+        //Arrange
+        class TestClass {
+            var array: [Int64] = [1, 2, 3, 4]
+        }
+        
+        let m = TestClass()
+        
+        //Act
+        let json = JSONSerializer.toJson(m)
+        
+        //Assert
+        let expected = "{\"array\": [1, 2, 3, 4]}"
+        stringCompareHelper(json, expected)
+    }
+    
 }
