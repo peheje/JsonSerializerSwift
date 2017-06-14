@@ -1,15 +1,17 @@
 # JsonSerializerSwift
 A simple Json Serializer for Swift
 
-Update 14-06-2017:
+**Update 14-06-2017:**
 
 Merged a pull request, now arrays of primitives are no longer enclosed in tuborg clamps {}. Updated tests to reflect this. Might be a breaking change, but it is fixing a bug.
 
-Update 14-09-2016:
+**Update 14-09-2016:**
 
 Works with Swift 3.0. If you work with Swift 2.0 commit 921763ba36dbf1ce710f615d4c2ef838d2b4af3b will work. But I'm not planning on creating separate branches for Swift V2 and V3, so updates from now on will only be added to Swift 3.0 version.
 
-Parse your Swift object instances to a JSON string. This is a simple one-to-one conversion atm. Pretty print is supported. Properties will be named the same as in your classes as in the JSON string. I'm planning to add support for camelCaseName -> CamedCaseName in the conversion process, and maybe a custom name mapping (especially if Apple introduces property [Attributes]).
+**About**
+
+Parse your Swift object instances to a JSON string. This is a simple one-to-one conversion atm. Pretty print is supported. Properties will be named the same as in your classes as in the JSON string. 
 
 Uses reflection. On a MBP 15 Ultimo 2013 I'm getting about 1.5 sec for serializing a simple three-layer-inheritance object with 10000 array objects.
 
