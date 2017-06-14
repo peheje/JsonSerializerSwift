@@ -94,7 +94,10 @@ open class JSONSerializer {
     - returns: A string JSON representation of the object.
     */
     open static func toJson(_ object: Any, prettify: Bool = false) -> String {
-        var json = "{"
+        var json = ""
+        if (!(object is Array<Any>)) {
+            json += "{"
+        }
         let mirror = Mirror(reflecting: object)
         
         var children = [(label: String?, value: Any)]()
@@ -264,7 +267,9 @@ open class JSONSerializer {
         }
         
         if !skip {
-            json += "}"
+            if (!(object is Array<Any>)) {
+                json += "}"
+            }
         }
         
         if prettify {
