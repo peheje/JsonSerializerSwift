@@ -9,3 +9,4 @@ build
 !default.perspectivev3
 *.xcuserdata
 *.xcuserstate
+*.xcbkptlist

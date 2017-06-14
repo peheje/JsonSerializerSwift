@@ -651,7 +651,7 @@ class JSONSerializerTests: XCTestCase {
         print(json)
         
         //Assert
-        let expected = "{[1, 2, 3]}"
+        let expected = "[1, 2, 3]"
         stringCompareHelper(json, expected)
     }
     
@@ -665,7 +665,21 @@ class JSONSerializerTests: XCTestCase {
         print(json)
         
         //Assert
-        let expected = "{[2.2, 1.5, 5.6]}"
+        let expected = "[2.2, 1.5, 5.6]"
+        stringCompareHelper(json, expected)
+    }
+    
+    func test_stringArray_noIndex() {
+        
+        //Arrange
+        let m = ["hello", "how", "are"]
+        
+        //Act
+        let json = JSONSerializer.toJson(m, prettify: false)
+        print(json)
+        
+        //Assert
+        let expected = "[\"hello\", \"how\", \"are\"]"
         stringCompareHelper(json, expected)
     }
     
