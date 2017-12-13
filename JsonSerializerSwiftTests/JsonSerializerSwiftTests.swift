@@ -626,7 +626,7 @@ class JSONSerializerTests: XCTestCase {
         }
         class Cat: Animal {
             var fur: Bool = true
-            var information = [1.3, 5.0, 2.2]
+            var information = [1.3, 5.0, 2.5]
         }
         
         
@@ -637,7 +637,7 @@ class JSONSerializerTests: XCTestCase {
         print(json)
         
         //Assert
-        let expected = "{\n  \"information\" : [\n    1.3,\n    5,\n    2.2\n  ],\n  \"age\" : 2,\n  \"id\" : 182371823,\n  \"fur\" : true,\n  \"weight\" : 2.5,\n  \"name\" : \"An animal\"\n}"
+        let expected = "{\n  \"information\" : [\n    1.3,\n    5,\n    2.5\n  ],\n  \"age\" : 2,\n  \"id\" : 182371823,\n  \"fur\" : true,\n  \"weight\" : 2.5,\n  \"name\" : \"An animal\"\n}"
         stringCompareHelper(json, expected)
     }
     
