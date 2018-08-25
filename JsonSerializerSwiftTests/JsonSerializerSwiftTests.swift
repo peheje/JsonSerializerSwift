@@ -683,7 +683,8 @@ class JSONSerializerTests: XCTestCase {
         stringCompareHelper(json, expected)
     }
     
-    func test_array() {
+    func test_objectarray() {
+        // Arrange
         class Location {
             var lat: Int
             var lon: Int
@@ -697,9 +698,12 @@ class JSONSerializerTests: XCTestCase {
         m.append(Location(1, 2))
         m.append(Location(1, 2))
         
+        // Act
         let json = JSONSerializer.toJson(m, prettify: false)
         
-        print(json)
+        // Assert
+        let expected = "[{\"lat\": 1, \"lon\": 2}, {\"lat\": 1, \"lon\": 2}]"
+        stringCompareHelper(json, expected)
     }
     
     func test_int64_notTreatedAsString() {
